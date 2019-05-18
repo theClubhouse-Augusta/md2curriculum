@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --no-config --write 'src/index.js'",
-    "build": ""
+    "prettier": "prettier --no-config --write './src/**/*.{ts,js,css,json}'",
+    "babel": "babel src -d lib",
+    "build": "npm run prettier && npm run babel"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,9 @@
   },
   "homepage": "https://github.com/axecopfire/mdown-parser#readme",
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "prettier": "1.17.1"
   }
 }
