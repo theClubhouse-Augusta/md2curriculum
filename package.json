@@ -1,0 +1,19 @@
+{
+  "name": "mdown-parser",
+  "version": "1.0.0",
+  "description": "cli tool that provides analytics on a markdown file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axecopfire/mdown-parser.git"
+  },
+  "author": "axecopfire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axecopfire/mdown-parser/issues"
+  },
+  "homepage": "https://github.com/axecopfire/mdown-parser#readme"
+}
