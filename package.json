@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --no-config --write './src/**/*.{ts,js,css,json}'",
     "babel": "babel src -d lib",
-    "build": "npm run prettier && npm run babel"
+    "build": "npm run prettier && npm run babel",
+    "watch": "onchange 'src/**/*.js' -- npm run babel"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "onchange": "^5.2.0",
     "prettier": "1.17.1"
   }
 }

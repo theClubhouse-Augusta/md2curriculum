@@ -1,3 +1,6 @@
-class MarkdownParser {
-  constructor() {}
-}
+import Input from "./input";
+
+
+
+const answer = new Input();
+ 
