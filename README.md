@@ -1,6 +1,7 @@
 `npm run test`
 `npm run build`
 `npm run watch`
+`npm run parse`
 
 # TODOs
 #### Objects:

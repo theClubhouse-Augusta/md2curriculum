@@ -8,7 +8,8 @@
     "prettier": "prettier --no-config --write './src/**/*.{ts,js,css,json}'",
     "babel": "babel src -d lib",
     "build": "npm run prettier && npm run babel",
-    "watch": "onchange 'src/**/*.js' -- npm run babel"
+    "watch": "onchange 'src/**/*.js' -- npm run babel",
+    "parse": "node lib/app.js --"
   },
   "repository": {
     "type": "git",

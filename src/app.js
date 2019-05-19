@@ -1,6 +1,7 @@
 import Input from "./input";
+import Process from "./process";
 
 
-
-const answer = new Input();
+const input = new Input("CLI");
+const processFile = new Process(input.filePath);
  
