@@ -1,5 +1,7 @@
 import Input from "./input";
-import Process from "./process";
+import Process from "./fileProcessing/processFile";
 
 const input = new Input("CLI");
-const processFile = new Process(input.filePath);
+let process = new Process(input.filePath);
+
+// console.log(process);

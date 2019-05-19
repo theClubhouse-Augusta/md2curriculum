@@ -9,7 +9,7 @@
     "babel": "babel src -d lib",
     "build": "npm run prettier && npm run babel",
     "watch": "onchange 'src/**/*.js' -- npm run babel",
-    "parse": "node lib/app.js --"
+    "parse": "node lib/app.js ../1.txt"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,11 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "cypress": "^3.3.0",
     "onchange": "^5.2.0",
     "prettier": "1.17.1"
