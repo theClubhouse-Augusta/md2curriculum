@@ -1,3 +1,7 @@
+`npm run test`
+`npm run build`
+`npm run watch`
+
 # TODOs
 #### Objects:
     - read CLI

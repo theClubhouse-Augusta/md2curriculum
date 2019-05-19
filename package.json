@@ -4,7 +4,7 @@
   "description": "cli tool that provides analytics on a markdown file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn run cypress open",
     "prettier": "prettier --no-config --write './src/**/*.{ts,js,css,json}'",
     "babel": "babel src -d lib",
     "build": "npm run prettier && npm run babel",
@@ -24,6 +24,7 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "cypress": "^3.3.0",
     "onchange": "^5.2.0",
     "prettier": "1.17.1"
   }
