@@ -1,5 +1,15 @@
 export default class ProcessLine {
   constructor(line) {
-    return (this.line = line);
+    this.processedLine = {
+      "line": line
+    };
+
+    
+    this.countWeek();
+  }
+  countWeek () {
+    let reWeek = /[# Week]/;
+    // let check = this.line.match(reWeek);
+    console.log();
   }
 }

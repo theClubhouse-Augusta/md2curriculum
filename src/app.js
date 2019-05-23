@@ -1,7 +1,18 @@
 import Input from "./input";
 import Process from "./fileProcessing/processFile";
 
-const input = new Input("CLI");
-let process = new Process(input.filePath);
+const util = require('util');
 
-// console.log(process);
+const input = new Input("CLI");
+let process1 = new Process(input.filePath);
+let process2 = new Process(input.filePath);
+Promise.all([
+    process1.processFile(),
+    process2.processFile()
+]).then(d => {
+//    d.forEach(p => console.log(p))
+})
+// process = process.processFile();
+
+// console.log(util.inspect(process, false, null, true /* enable colors */))
+
