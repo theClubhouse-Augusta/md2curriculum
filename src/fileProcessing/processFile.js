@@ -1,8 +1,8 @@
 import ProcessLine from "./processLine";
 
-const { createReadStream } = require("fs");
-const { createInterface } = require("readline");
-const util = require('util');
+const fs = require("fs");
+// const { createInterface } = require("readline");
+// const util = require('util');
 
 export default class Process {
   constructor(filePath) {
@@ -10,18 +10,10 @@ export default class Process {
   }
 
   processFile() {
-    var data = '';
-
-    return new Promise(function(resolve, reject){
-      createInterface({
-        input: createReadStream(this.filePath)
-      })
-      .on("line", line => {
-        data += line + '\n';
-      })
-      .on("close", f => {
-        resolve(data)
-      })
-    })
+    return new Promise ((resolve, reject) => {
+      fs.readFile(filePath, (err, data) => {
+        console.log(data);
+      });
+    });
   }
 }
