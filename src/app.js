@@ -1,5 +1,5 @@
 import Input from "./input";
-import Process from "./fileProcessing/processFile";
+import Process from "./FileProcessing/ProcessFile";
 
 const util = require('util');
 

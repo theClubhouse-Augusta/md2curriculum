@@ -1,4 +1,4 @@
-import Analyze from  "./Analyze";
+import Analyze from  "./AnalyzeFile";
 
 const fs = require("fs");
 // const { createInterface } = require("readline");
@@ -17,7 +17,10 @@ export default class Process {
         if (err) throw err;
         
         // Call File Processes
-        Analyze.call(this, data, "file");
+        /* Options:
+         * Week
+        */
+        Analyze.call(this, data, "Week");
         // this.listWeeks(data);
 
         resolve(this);
