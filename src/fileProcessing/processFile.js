@@ -1,4 +1,4 @@
-import ProcessLine from "./processLine";
+// import ProcessLine from "./processLine";
 
 const fs = require("fs");
 // const { createInterface } = require("readline");
@@ -11,8 +11,9 @@ export default class Process {
 
   processFile() {
     return new Promise ((resolve, reject) => {
-      fs.readFile(filePath, (err, data) => {
-        console.log(data);
+      fs.readFile(this.filePath, (err, data) => {
+        if (err) throw err;
+        resolve(data);
       });
     });
   }

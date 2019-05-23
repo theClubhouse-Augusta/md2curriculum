@@ -4,11 +4,13 @@ import Process from "./fileProcessing/processFile";
 const util = require('util');
 
 const input = new Input("CLI");
-let process1 = new Process();
-process1.processFile(input.filePath)
-    .then( (data) => {
+let process1 = new Process(input.filePath);
+process1.processFile()
+    .then((data) => {
         console.log(data);
-    });
+    }, (err) => {
+        console.error(err);
+    },)
 
 
 // let process2 = new Process(input.filePath);
