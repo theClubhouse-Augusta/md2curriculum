@@ -7,10 +7,13 @@ const input = new Input("CLI");
 let process1 = new Process(input.filePath);
 process1.processFile()
     .then((data) => {
-        console.log(data);
-    }, (err) => {
+        console.log(
+            '\x1b[36m%s\x1b[0m',
+            util.inspect(data, false, null, true
+            ))
+    }, function (err) {
         console.error(err);
-    },)
+    })
 
 
 // let process2 = new Process(input.filePath);
@@ -20,6 +23,3 @@ process1.processFile()
 // ]).then(d => {
 // //    d.forEach(p => console.log(p))
 // })
-// // process = process.processFile();
-
-// console.log(util.inspect(process, false, null, true /* enable colors */))
