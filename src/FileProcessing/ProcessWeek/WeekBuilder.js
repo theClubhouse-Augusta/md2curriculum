@@ -57,7 +57,8 @@ export default class Week {
         continue;
       }
       if(weekIndex === 0 && match.index !== 0) {
-        
+        weekIndex = match.index;
+        continue;
       }
 
       
