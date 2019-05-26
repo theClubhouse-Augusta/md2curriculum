@@ -1,13 +1,26 @@
 # Week 1
 
+Here's some stuff
+## Exercise
+- This is an Exercise
+
+## Resources
+- Here are some resources
 Week 1 stuff
 Week 1 stuff
 Week 1 stuff
 
 # Week 2
+## Exercise
+- This is an Exercise
+
+
 
 Week 2 Stuff
 Week 2 Stuff
 Week 2 Stuff
+
+## Resources
+- Here are some resources
 
 # Week 3

@@ -4,8 +4,8 @@ export default class Week {
     this._weekNames = [];
     this._weekCount = 0;
     this._weekPattern = /(# Week.*)/g;
+    this._activityPattern = /(## Resource.*)|(## Exercise.*)/g;
     this._weekContent = {};
-    this._exercisesPattern = /(Exercises)/g;
   }
 
   get weekCount() { 
@@ -43,24 +43,29 @@ export default class Week {
     return this._weekNames = weekNames;
   }
 
-  // Adds the content between weeks to a week object
-  // Starts matching weeks at first week. Any content before won't be added
-  // Format example: `# Week 1`
-  addWeekContent() {
+
+  // Recursive func that takes a pattern (heading level) and tests it against headings/subheadings
+  addWeekContent(heading) {
     let match;
     let week = {};
     let weekIndex = 0;
     let weekContent = "";
     let weekStart = "";
 
-    while (match = this._weekPattern.exec(this._data)) {
+    let headingLevel = !heading ? "#" : heading;
+    let regexHeading = RegExp(headingLevel + ".*", "g");
+
+
+
+
+    while ((match = regexHeading.exec(this._data))  != null) {
       let weekPropName = "";
 
       if(match.index === 0) {
         continue;
       }
 
-      weekContent = this._data.substring(weekIndex, match.index);
+      weekContent = this.breakWeeksIntoActivities(this._data.substring(weekIndex, match.index));
 
       if(weekIndex === 0) {
         weekPropName = "Week1";
@@ -75,6 +80,37 @@ export default class Week {
       weekIndex = match.index;
     }
     return this._weekContent = week;
+  }
+
+  breakWeeksIntoActivities(weekString) {
+    let match;
+    let activity = {};
+    let activityIndex = 0;
+    let activityContent = "";
+    let activityStart = "";
+
+    while (match = this._activityPattern.exec(weekString)) {
+      let activityPropName = "";
+
+      console.log("match index:", match.index, "\nThe match", match[0]);
+
+      activityContent =  weekString.substring(activityIndex, match.index);
+
+      // if(activityIndex === 0) {
+      //   activityPropName = "Activity1";
+      // } else {
+      //   activityPropName = activityStart;
+      // }
+
+      activityPropName = match[0];
+
+      activity[activityPropName] = activityContent;
+
+      // ready for the next iteration
+      // activityStart = match[0].replace("#", "").split(" ").join("");
+      activityIndex = match.index;
+    }
+    return activity;
   }
 }
 
