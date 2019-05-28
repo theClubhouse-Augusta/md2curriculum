@@ -2,7 +2,7 @@
 
 Here's some stuff
 ## Exercise
-- This is an Exercise
+- This is stuff
 
 ## Resources
 - Here are some resources
@@ -10,10 +10,13 @@ Week 1 stuff
 Week 1 stuff
 Week 1 stuff
 
+---
+
 # Week 2
 ## Exercise
 - This is an Exercise
 
+---
 
 
 Week 2 Stuff

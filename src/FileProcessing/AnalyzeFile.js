@@ -14,7 +14,7 @@ export default function Analyze (data, type) {
 
   // this.WeekNames = week.weekNames;
   // this.WeekCount = week.weekCount;
-  this.WeekContent = week.weekContent;
+  this.WeekContent = week.content;
 
   return this;
 }
