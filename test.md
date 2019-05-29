@@ -1,21 +1,16 @@
 # Week 1
 
-Here's some stuff
-kjnas;fnzcnv
-I got a new thing to teach
-
-
-asdfkjal;jhsd
-
+## Here's a section header
+- Teaching a thing
+1. Teach another thing
 
 ## Exercise
-- This is stuff
+1. First Exercise
+
+---
 
 ## Resources
 - Here are some resources
-Week 1 stuff
-Week 1 stuff
-Week 1 stuff
 
 ---
 
@@ -23,14 +18,12 @@ Week 1 stuff
 ## Exercise
 - This is an Exercise
 
+
 ---
-
-
-Week 2 Stuff
-Week 2 Stuff
-Week 2 Stuff
 
 ## Resources
 - Here are some resources
+
+---
 
 # Week 3
