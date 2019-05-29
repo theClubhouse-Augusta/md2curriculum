@@ -48,7 +48,9 @@ export default class Week {
   buildContent(heading) {
 
     // Base Object where all content resides
-    let contentObj, currentTopLevel, currentActivity = {};    
+    let contentObj = {},
+    currentTopLevel ={},
+    currentActivity = {};    
     let i =0;
 
     // TODO:
