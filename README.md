@@ -2,6 +2,32 @@
 Markdown to File Structure is a command line tool that converts a single markdown file into separate files and folders based on cli arguments. This tool is made to help coding boot camp instructors develop curriculum using Markdown files on Github and be able to release those files in a managed way.
 
 
+## Markdown Rules
+Headers are defined as a single `#`
+``` Markdown
+# Week 1
+```
+These will be the folder names in your output folder. The content for these will be placed into `readme.md`, which will by default display on Github.
+
+There are 2 types of activities
+`## Resources` and `## Exercises`
+These will be in separate files.
+
+At the end of each activity put `---` to signal that activity has ended.
+
+Example:
+``` Markdown
+# Week 1
+- Content
+
+## Exercise
+1. Do a thing
+2. And another thing
+
+---
+```
+
+
 ## Installation
 - `npm install md2fs`
 
@@ -18,6 +44,11 @@ md2fs(fileName);
 
 From the Command Line:
 `node index.js test.md`
+
+
+
+
+
 
 ## Goals
 ```
