@@ -1,7 +1,7 @@
 {
-  "name": "md2curriculum",
+  "name": "md2fs",
   "version": "1.0.0",
-  "description": "cli tool that converts a markdown file into a directory structure.",
+  "description": "cli tool that converts a single markdown file to a folder and file structure",
   "main": "index.js",
   "scripts": {
     "test": "yarn run cypress open",
@@ -11,18 +11,19 @@
     "watch": "onchange 'src/**/*.js' -- npm run watch:parse",
     "parse": "node lib/app.js ../test.md",
     "watch:parse": "npm run babel -s && npm run parse -s",
-    "dev": "npm run babel -s && npm run parse -s"
+    "dev": "npm run babel -s && npm run parse -s",
+    "prettyIndex": "prettier --no-config --write './index.js'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/theClubhouse-Augusta/md2curriculum"
+    "url": "https://github.com/theClubhouse-Augusta/md2fs"
   },
   "author": "thec_admin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/theClubhouse-Augusta/md2curriculum/issues"
+    "url": "https://github.com/theClubhouse-Augusta/md2fs/issues"
   },
-  "homepage": "https://github.com/theClubhouse-Augusta/md2curriculum#readme",
+  "homepage": "https://github.com/theClubhouse-Augusta/md2fs#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
