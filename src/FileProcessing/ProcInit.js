@@ -1,4 +1,4 @@
-import Controller from  "./Controller";
+import Controller from "./Controller";
 
 const fs = require("fs");
 // const { createInterface } = require("readline");
@@ -10,16 +10,15 @@ export default class Process {
   }
 
   processFile() {
-    return new Promise ((resolve, reject) => {
-
+    return new Promise((resolve, reject) => {
       // Read a File
       fs.readFile(this.filePath, "utf8", (err, data) => {
         if (err) throw err;
-        
+
         // Call File Processes
         /* Options:
          * Week
-        */
+         */
         Controller.call(this, data, "Week");
         // this.listWeeks(data);
 
@@ -27,7 +26,6 @@ export default class Process {
       });
     });
   }
-
 }
 
 /*

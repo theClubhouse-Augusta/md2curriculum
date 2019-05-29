@@ -1,21 +1,85 @@
-`npm run test`
-`npm run build`
-`npm run watch`
-`npm run parse`
+# md2fs
+Markdown to File Structure is a command line tool that converts a single markdown file into separate files and folders based on cli arguments. This tool is made to help coding boot camp instructors develop curriculum using Markdown files on Github and be able to release those files in a managed way.
 
-# TODOs
-#### Objects:
-    - read CLI
-    - get filename
-    - process other arguments
-    - read file with arguments
-    - process read file other arguments
 
-#### Steps
-* Track line numbers
-* Pattern match for '# Week'
-* Pattern match for '# Topics'
-* Pattern match for '# Exercise' in Week
-* log how many weeks there are
-* log how many topics there are
-* log how many exercises there are per week
+## Markdown Rules
+Headers are defined as a single `#`
+``` Markdown
+# Week 1
+```
+These will be the folder names in your output folder. The content for these will be placed into `readme.md`, which will by default display on Github.
+
+There are 2 types of activities
+`## Resources` and `## Exercises`
+These will be in separate files.
+
+At the end of each activity put `---` to signal that activity has ended.
+
+Example:
+``` Markdown
+# Week 1
+- Content
+
+## Exercise
+1. Do a thing
+2. And another thing
+
+---
+```
+
+
+## Installation
+- `npm install md2fs`
+
+## Usage
+
+*note: File to parse must be in same dir as index.js*
+
+With Javascript:
+``` Javascript
+const md2fs = require('md2fs');
+
+md2fs(fileName);
+```
+
+From the Command Line:
+`node index.js test.md`
+
+
+
+
+
+
+## Goals
+```
+Options
+    --file-in/-fi <path/to/file>
+        Defines the file to be processed. If left unspecified defaults to the test file in the repo.
+    --folder-out/-fo <path/to/folder>
+        Defines the top level output folder. If left unspecified defaults to a folder named output.
+    --activities/-a <[list of activities]>
+        Defines the different activity types
+
+   ex. md2fs ./readme.md ./dist
+```
+
+## How to Contribute
+Thank you for considering contributing to this project. 
+To get up and running your going to need to do a few basic things first.
+
+#### Basic Steps
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Run `npm install` to install local dependencies
+4. Add your changes to `./index.js` and in the `src` folder
+5. Refer to the **Testing** section on how to test your changes as you develop
+6. Run `npm run build` to run babel and prettier on your code. This way we don't have to have a conversation about code formatting.
+7. Commit your changes (`git commit -am "Add some feature"`)
+8. Push to the branch (`git push origin my-new-feature`)
+9. Create new Pull Request
+
+
+#### Testing
+- This project uses new ECMA Script features. You will need to run [Babel](https://babeljs.io/) to propagate your changes in `src` to the `lib` folder. 
+- To test your changes use `npm run dev`. This command by default loads the test file in the root of the directory. This file is named `test.md`. You can change your test file by going into your `package.json` and changing where the config is pointing. 
+- *note: please remember not commit your custom test change to `package.json` as it would break tests for others.*

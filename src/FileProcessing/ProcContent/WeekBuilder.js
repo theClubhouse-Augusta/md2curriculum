@@ -8,50 +8,48 @@ export default class Week {
     this._contentObj = {};
   }
 
-  get weekCount() { 
+  get weekCount() {
     this.addWeekCount();
-    return this._weekCount; 
+    return this._weekCount;
   }
-  get weekNames() { 
+  get weekNames() {
     this.addWeekNames();
-    return this._weekNames; 
+    return this._weekNames;
   }
   get content() {
     this.buildContent();
     return this._weekContent;
   }
-  
+
   addWeekCount() {
     let weekCounter = 0;
     let match;
 
-    while (match = this._weekPattern.exec(this._data)) {
+    while ((match = this._weekPattern.exec(this._data))) {
       weekCounter++;
     }
 
-    return this._weekCount = weekCounter;
+    return (this._weekCount = weekCounter);
   }
 
   addWeekNames() {
     let weekNames = [];
     let match;
 
-    while (match = this._weekPattern.exec(this._data)) {
+    while ((match = this._weekPattern.exec(this._data))) {
       weekNames.push(match[0]);
     }
 
-    return this._weekNames = weekNames;
+    return (this._weekNames = weekNames);
   }
-
 
   // Recursive func that takes a pattern (heading level) and tests it against headings/subheadings
   buildContent(heading) {
-
     // Base Object where all content resides
     let contentObj = {},
-    currentTopLevel ={},
-    currentActivity = {};    
-    let i =0;
+      currentTopLevel = {},
+      currentActivity = {};
+    let i = 0;
 
     // TODO:
     // Make function recursively called to break object into more controllable chunks
@@ -64,46 +62,52 @@ export default class Week {
     let headingRegex = RegExp(`^${headingLevel} .*`, "g");
     let exerciseRegex = RegExp("^## Exercise.*", "g");
     let resourceRegex = RegExp("^## Resource.*", "g");
-    
-    while(i < fileArray.length) {
 
+    while (i < fileArray.length) {
       // Top Level heading
-      if(headingRegex.test(fileArray[i])) {
-        
-        currentTopLevel = fileArray[i].replace("#", "").split(" ").join("");
+      if (headingRegex.test(fileArray[i])) {
+        currentTopLevel = fileArray[i]
+          .replace("#", "")
+          .split(" ")
+          .join("");
 
         // Initialize heading
         contentObj[currentTopLevel] = {};
         contentObj[currentTopLevel]["content"] = fileArray[i];
-      } 
+      }
 
       // Test and Set Activity Heading
       // Todo: What if Exercise initialized w/o heading
-      else if (exerciseRegex.test(fileArray[i]) || resourceRegex.test(fileArray[i])) {
-
-        currentActivity = fileArray[i].replace("##", "").split(" ").join("");
-        contentObj[currentTopLevel][currentActivity] = (fileArray[i] + "\n");
+      else if (
+        exerciseRegex.test(fileArray[i]) ||
+        resourceRegex.test(fileArray[i])
+      ) {
+        currentActivity = fileArray[i]
+          .replace("##", "")
+          .split(" ")
+          .join("");
+        contentObj[currentTopLevel][currentActivity] = fileArray[i] + "\n";
       }
 
       // Test/Set Exercise Ending
       // Reset Current Activity
-      else if (fileArray[i] === "---" && Object.keys(currentActivity).length > 0 ) {
+      else if (
+        fileArray[i] === "---" &&
+        Object.keys(currentActivity).length > 0
+      ) {
         currentActivity = {};
-      } 
+      }
 
       // Test/Set Current Activity is active
       // Add Activity Content
       else if (Object.keys(currentActivity).length > 0) {
+        contentObj[currentTopLevel][currentActivity] += fileArray[i] + "\n";
+      } else {
+        contentObj[currentTopLevel]["content"] += fileArray[i] + "\n";
+      }
 
-        contentObj[currentTopLevel][currentActivity] += (fileArray[i] + "\n");
-      }
-      else {
-        contentObj[currentTopLevel]["content"] += (fileArray[i] + "\n");
-      }
-      
       i++;
     }
-    return this._weekContent = contentObj;
+    return (this._weekContent = contentObj);
   }
 }
-

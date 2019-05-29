@@ -1,7 +1,7 @@
 {
-  "name": "mdown-parser",
+  "name": "md2fs",
   "version": "1.0.0",
-  "description": "cli tool that provides analytics on a markdown file",
+  "description": "cli tool that converts a single markdown file to a folder and file structure",
   "main": "index.js",
   "scripts": {
     "test": "yarn run cypress open",
@@ -9,20 +9,21 @@
     "babel": "babel src -d lib",
     "build": "npm run prettier && npm run babel",
     "watch": "onchange 'src/**/*.js' -- npm run watch:parse",
-    "parse": "node lib/app.js ../1.txt",
-    "watch:parse": "npm run babel && npm run parse",
-    "dev": "npm run babel && npm run parse"
+    "parse": "node index.js test.md",
+    "watch:parse": "npm run babel -s && npm run parse -s",
+    "dev": "npm run babel && npm run parse",
+    "prettyIndex": "prettier --no-config --write './index.js'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axecopfire/mdown-parser.git"
+    "url": "https://github.com/theClubhouse-Augusta/md2fs"
   },
-  "author": "axecopfire",
+  "author": "thec_admin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/axecopfire/mdown-parser/issues"
+    "url": "https://github.com/theClubhouse-Augusta/md2fs/issues"
   },
-  "homepage": "https://github.com/axecopfire/mdown-parser#readme",
+  "homepage": "https://github.com/theClubhouse-Augusta/md2fs#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
@@ -35,9 +36,5 @@
     "cypress": "^3.3.0",
     "onchange": "^5.2.0",
     "prettier": "1.17.1"
-  },
-  "dependencies": {
-    "markdown-it": "^8.4.2",
-    "markdown-to-json": "^0.5.1"
   }
 }
