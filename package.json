@@ -1,5 +1,5 @@
 {
-  "name": "mdown-parser",
+  "name": "md2curriculum",
   "version": "1.0.0",
   "description": "cli tool that converts a markdown file into a directory structure.",
   "main": "index.js",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axecopfire/mdown-parser.git"
+    "url": "https://github.com/theClubhouse-Augusta/md2curriculum"
   },
-  "author": "axecopfire",
+  "author": "thec_admin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/axecopfire/mdown-parser/issues"
+    "url": "https://github.com/theClubhouse-Augusta/md2curriculum/issues"
   },
-  "homepage": "https://github.com/axecopfire/mdown-parser#readme",
+  "homepage": "https://github.com/theClubhouse-Augusta/md2curriculum#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
@@ -35,9 +35,5 @@
     "cypress": "^3.3.0",
     "onchange": "^5.2.0",
     "prettier": "1.17.1"
-  },
-  "dependencies": {
-    "markdown-it": "^8.4.2",
-    "markdown-to-json": "^0.5.1"
   }
 }
