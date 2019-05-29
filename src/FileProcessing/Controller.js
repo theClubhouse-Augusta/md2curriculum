@@ -1,6 +1,6 @@
-import Week from './ProcContent/WeekBuilder';
+import Week from "./ProcContent/WeekBuilder";
 
-export default function Controller (data, type) {
+export default function Controller(data, type) {
   // Build out Weeks with week count/names
   let week = new Week(data);
 
@@ -10,9 +10,3 @@ export default function Controller (data, type) {
 
   return this;
 }
-
-
-
-
-
-

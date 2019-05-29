@@ -1,7 +1,7 @@
 {
   "name": "mdown-parser",
   "version": "1.0.0",
-  "description": "cli tool that provides analytics on a markdown file",
+  "description": "cli tool that converts a markdown file into a directory structure.",
   "main": "index.js",
   "scripts": {
     "test": "yarn run cypress open",
@@ -9,9 +9,9 @@
     "babel": "babel src -d lib",
     "build": "npm run prettier && npm run babel",
     "watch": "onchange 'src/**/*.js' -- npm run watch:parse",
-    "parse": "node lib/app.js ../1.txt",
-    "watch:parse": "npm run babel && npm run parse",
-    "dev": "npm run babel && npm run parse"
+    "parse": "node lib/app.js ../test.md",
+    "watch:parse": "npm run babel -s && npm run parse -s",
+    "dev": "npm run babel -s && npm run parse -s"
   },
   "repository": {
     "type": "git",
