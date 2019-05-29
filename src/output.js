@@ -13,11 +13,17 @@ export default function Output(data) {
 
   if (!fs.existsSync(outputFolder)) {
     fs.mkdirSync(outputFolder);
+    console.log("Making your " + outputFolder + " folder");
+  } else {
+    console.log(outputFolder + " folder already exists. No need to build it");
   }
 
   Object.keys(data.content).forEach(key => {
     if (!fs.existsSync(outputFolder + key)) {
+      console.log("Building your " + key + " folder" );
       fs.mkdirSync(outputFolder + key);
+    } else {
+      console.log(key + " folder already exists. No need to build it." );
     }
 
     Object.keys(data.content[key]).forEach(file => {
@@ -36,4 +42,5 @@ export default function Output(data) {
       writeStream.end();
     });
   });
+  console.log("Build Completed");
 }
