@@ -46,22 +46,22 @@ export default class Week {
 
   // Recursive func that takes a pattern (heading level) and tests it against headings/subheadings
   buildContent(heading) {
-    let match;
-    let contentObj = {};
 
-
-    let headingLevel = !heading ? "#" : heading;
-    let fileArray = this._data.split("\n");
+    // Base Object where all content resides
+    let contentObj, currentTopLevel, currentActivity = {};    
     let i =0;
-    let currentTopLevel = {}; 
-    let currentActivity = {};
-    
+
+    // TODO:
+    // Make function recursively called to break object into more controllable chunks
+    let headingLevel = !heading ? "#" : heading;
+
+    // Break file string into array
+    let fileArray = this._data.split("\n");
+
+    // Regex Tests for sections
     let headingRegex = RegExp(`^${headingLevel} .*`, "g");
     let exerciseRegex = RegExp("^## Exercise.*", "g");
     let resourceRegex = RegExp("^## Resource.*", "g");
-
-    
-    // console.log(fileArray);
     
     while(i < fileArray.length) {
 
@@ -69,7 +69,6 @@ export default class Week {
       if(headingRegex.test(fileArray[i])) {
         
         currentTopLevel = fileArray[i].replace("#", "").split(" ").join("");
-        console.log("* " + currentTopLevel + " *");
 
         // Initialize heading
         contentObj[currentTopLevel] = {};
@@ -79,7 +78,6 @@ export default class Week {
       // Test and Set Activity Heading
       // Todo: What if Exercise initialized w/o heading
       else if (exerciseRegex.test(fileArray[i]) || resourceRegex.test(fileArray[i])) {
-        console.log("Hi there Activity!!!");
 
         currentActivity = fileArray[i].replace("##", "").split(" ").join("");
         contentObj[currentTopLevel][currentActivity] = (fileArray[i] + "\n");
@@ -94,49 +92,16 @@ export default class Week {
       // Test/Set Current Activity is active
       // Add Activity Content
       else if (Object.keys(currentActivity).length > 0) {
-        console.log("----> " + fileArray[i]);
 
         contentObj[currentTopLevel][currentActivity] += (fileArray[i] + "\n");
       }
       else {
         contentObj[currentTopLevel]["content"] += (fileArray[i] + "\n");
-        console.log("->" + fileArray[i]);
       }
       
       i++;
     }
     return this._weekContent = contentObj;
-  }
-
-  breakWeeksIntoActivities(weekString) {
-    let match;
-    let activity = {};
-    let activityIndex = 0;
-    let activityContent = "";
-    let activityStart = "";
-
-    while (match = this._activityPattern.exec(weekString)) {
-      let activityPropName = "";
-
-      console.log("match index:", match.index, "\nThe match", match[0]);
-
-      activityContent =  weekString.substring(activityIndex, match.index);
-
-      // if(activityIndex === 0) {
-      //   activityPropName = "Activity1";
-      // } else {
-      //   activityPropName = activityStart;
-      // }
-
-      activityPropName = match[0];
-
-      activity[activityPropName] = activityContent;
-
-      // ready for the next iteration
-      // activityStart = match[0].replace("#", "").split(" ").join("");
-      activityIndex = match.index;
-    }
-    return activity;
   }
 }
 

@@ -1,4 +1,4 @@
-import Analyze from  "./AnalyzeFile";
+import Controller from  "./Controller";
 
 const fs = require("fs");
 // const { createInterface } = require("readline");
@@ -20,7 +20,7 @@ export default class Process {
         /* Options:
          * Week
         */
-        Analyze.call(this, data, "Week");
+        Controller.call(this, data, "Week");
         // this.listWeeks(data);
 
         resolve(this);
