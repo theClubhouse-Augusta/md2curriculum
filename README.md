@@ -1,9 +1,23 @@
 # md2fs
 Markdown to File Structure is a command line tool that converts a single markdown file into separate files and folders based on cli arguments. This tool is made to help coding boot camp instructors develop curriculum using Markdown files on Github and be able to release those files in a managed way.
 
-## Currently support
-    ex: `node index.js test.js`
-    File to parse must be in same dir as index.js
+
+## Installation
+- `npm install md2fs`
+
+## Usage
+
+*note: File to parse must be in same dir as index.js*
+
+With Javascript:
+``` Javascript
+const md2fs = require('md2fs');
+
+md2fs(fileName);
+```
+
+From the Command Line:
+`node index.js test.md`
 
 ## Goals
 ```

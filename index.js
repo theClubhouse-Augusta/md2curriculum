@@ -19,19 +19,16 @@ Options
 
 var App = require('./lib/app.js');
 
-md2fs(process.argv[1], process.argv.slice(2))
 
-module.exports = md2fs;
-
-function md2fs (cwd, args) {
-
+module.exports = function md2fs (args) {
+    
     args.forEach(function (arg, index) {
         if(index === 0) {
-
+            
             // REALLY HACKY
             App("../" + arg);
         }
-
+        
     });
-
+    
 }
