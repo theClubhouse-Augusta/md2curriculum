@@ -1,5 +1,6 @@
 import Input from "./input";
 import Process from "./FileProcessing/ProcInit";
+import Output from "./output";
 
 const util = require('util');
 
@@ -7,10 +8,7 @@ const input = new Input("CLI");
 let process1 = new Process(input.filePath);
 process1.processFile()
     .then((data) => {
-        console.log(
-            '\x1b[36m%s\x1b[0m',
-            util.inspect(data, false, null, true
-            ))
+        Output(data);
     }, function (err) {
         console.error(err);
     })

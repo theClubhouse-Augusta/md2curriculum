@@ -6,7 +6,7 @@ export default function Controller (data, type) {
 
   // this.WeekNames = week.weekNames;
   // this.WeekCount = week.weekCount;
-  this.WeekContent = week.content;
+  this.content = week.content;
 
   return this;
 }
