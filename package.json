@@ -9,7 +9,7 @@
     "babel": "babel src -d lib",
     "build": "npm run prettier && npm run babel",
     "watch": "onchange 'src/**/*.js' -- npm run watch:parse",
-    "parse": "node index.js test.md",
+    "parse": "node test.js test.md",
     "watch:parse": "npm run babel -s && npm run parse -s",
     "dev": "npm run babel && npm run parse",
     "prettyIndex": "prettier --no-config --write './index.js'"

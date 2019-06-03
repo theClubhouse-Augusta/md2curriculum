@@ -9,7 +9,7 @@ module.exports = App;
 
 function App(file) {
   try {
-    console.log(file[1]);
+    console.log(file);
     var input = new Input(file);
     console.log(input);
   } catch (err) {

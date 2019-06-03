@@ -1,8 +1,8 @@
-'use strict'
+"use strict";
 /* Currently support
-* ex: node index.js test.js
-* File to parse must be in same dir as index.js
-*/
+ * ex: node index.js test.js
+ * File to parse must be in same dir as index.js
+ */
 
 /* Goals
 
@@ -17,8 +17,6 @@ Options
    ex. md2fs ./readme.md ./dist
 */
 
-
-
 // let args =[];
 // args.push("Outside the lib");
 // args.push(argument);
@@ -26,13 +24,9 @@ Options
 // args.push(__filename);
 // args.push(process.cwd()+ "/" +process.argv[2]);
 
-var App = require('./lib/app.js');
+var App = require("./lib/app.js");
 
-module.exports = function md2fs (args) {
-    // Pass user input to App
-    // console.log(args);
-    App(args);
-}
-
-// This file is invokable straight from the CLI
-App(process.argv);
+module.exports = function md2fs(args) {
+  // Pass user input to App
+  App(args);
+};
