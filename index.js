@@ -17,18 +17,22 @@ Options
    ex. md2fs ./readme.md ./dist
 */
 
+
+
+// let args =[];
+// args.push("Outside the lib");
+// args.push(argument);
+// args.push(__dirname);
+// args.push(__filename);
+// args.push(process.cwd()+ "/" +process.argv[2]);
+
 var App = require('./lib/app.js');
 
-
 module.exports = function md2fs (args) {
-    
-    args.forEach(function (arg, index) {
-        if(index === 0) {
-            
-            // REALLY HACKY
-            App("../" + arg);
-        }
-        
-    });
-    
+    // Pass user input to App
+    // console.log(args);
+    App(args);
 }
+
+// This file is invokable straight from the CLI
+App(process.argv);
