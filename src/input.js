@@ -11,7 +11,6 @@ export default class Input {
       // Assume its CLI array
       filePath = path.normalize(file[2]);
     } else {
-      console.log("file  am I hear yet?");
       filePath = file;
     } 
 
