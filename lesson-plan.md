@@ -53,6 +53,8 @@
 2. In that folder create a file called something like `hey-there.txt`
 3. Open that file and add some text
 
+---
+
 #### Git Basics
 - setup Github acct
 - diff b/w GitHub & git
@@ -64,6 +66,7 @@
 - [Basic Git Workflow Tutorial](http://rogerdudler.github.io/git-guide/)
 - [Basic Git cheat sheet](http://rogerdudler.github.io/git-guide/)
 
+---
 ## Exercise
 1. Create a new repository on Github.
 2. CLI: navigate to the folder **inside** your `cbc-6` folder.
@@ -90,10 +93,12 @@
 ## Resources
 - [Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/)
 
+---
+
 ## Exercise
 1. Add a `readme.md` file to your project
 2. Use 6 of the above concepts to explain your text file.
-
+---
 #### HTML Basic Terms
 - elements
 - tags
@@ -129,7 +134,7 @@
 ## Resources
 - [First Web Page](https://learn.shayhowe.com/html-css/building-your-first-web-page/)
 - [HTML/CSS Basics](https://learn.shayhowe.com/html-css/getting-to-know-html/)
-- 
+--- 
 
 ## Exercise
 1. Make a web page.
@@ -138,6 +143,7 @@
 4. In each of those add some divs, paragraphs, and spans of text.
 5. Apply classes and ids to html elements.
 
+---
 #### HTML Basic Concepts II
 - creating hyper links
     - relative vs absolute path
@@ -192,7 +198,7 @@
 - [Hyperlink Basics](https://learn.shayhowe.com/html-css/getting-to-know-html/)
 - [CSS Basics](https://learn.shayhowe.com/html-css/getting-to-know-css/)
 - [CSS Box Model](https://learn.shayhowe.com/html-css/opening-the-box-model/)
-
+---
 ## Exercise
 1. add an anchor tag that links to your favorite website.
 2. wrap a div of text that links to your text document you created.
@@ -202,7 +208,7 @@
 6. for an element that has a child:
     - put a px width/height on the parent.
     - on the child put a percentage width/height
-
+---
 #### HTML/CSS Developer Tools Basics
 - how to open
 - elements tab
@@ -223,12 +229,12 @@
 ## Resources
 - [Developer Tool Basics](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)
 - [CSS Positioning](https://learn.shayhowe.com/html-css/positioning-content/)
-
+---
 ## Exercise
 1. add an html `aside` element and put it above your `section`
 2. float the `aside` to the side of the section
 3. use `inline-block` to make a 2 column layout (2 elements side by side)
-
+---
 #### CSS Typography
 - typeface vs. font
 - color
@@ -264,7 +270,7 @@
 ## Resources
 - [Typography](https://learn.shayhowe.com/html-css/working-with-typography/)
 - [Backgrounds and Gradients](https://learn.shayhowe.com/html-css/setting-backgrounds-and-gradients/)
-
+---
 ## Exercise
 1. set your paragraphs to be a web safe font.
 2. load a font from Google that you like and set that for your anchor tags.
@@ -272,7 +278,7 @@
 4. set your divs to a certain background color.
 5. load a background image to something
 6. set a background-gradient to something
-
+---
 #### HTML lists
 - unordered lists
 - ordered lists
@@ -355,7 +361,7 @@
 - [Media](https://learn.shayhowe.com/html-css/adding-media/)
 - [Forms](https://learn.shayhowe.com/html-css/building-forms/)
 - [Tables](https://learn.shayhowe.com/html-css/organizing-data-with-tables/)
-
+---
 ## Exercise
 1. add an unordered list of at least 3 items
 2. add an ordered list of at least 3 items
@@ -366,7 +372,7 @@
 7. add an image tag
 8. give it a caption
 9. make a form with some different types of inputs
-
+---
 # Week 2
 
 #### CSS Scaleability and Performance
@@ -391,7 +397,7 @@
 - [Performance](https://learn.shayhowe.com/advanced-html-css/performance-organization/)
 - [Detailed Positioning](https://learn.shayhowe.com/advanced-html-css/detailed-css-positioning/)
 - [Complex Selectors](https://learn.shayhowe.com/advanced-html-css/complex-selectors/)
-
+---
 ## Exercise
 1. give an element a block level class name
 2. in that element give it a BEM class name
@@ -399,7 +405,7 @@
 4. position that child absolute and give it some offset
 5. make a grand child of step 3
 6. using z-index put the child of step 3 on top of the grand child
-
+---
 #### CSS Responsive Web Design
 - relative viewport lengths
 - media queries
@@ -418,13 +424,13 @@
 ## Resources
 - [Responsive Web Design](https://learn.shayhowe.com/advanced-html-css/responsive-web-design/)
 - [CSS Transforms](https://learn.shayhowe.com/advanced-html-css/css-transforms/)
-
+---
 ## Exercise
 1. Use a media query to change the layout from 1 column on mobile to 2 columns on desktop
 2. Set an image's height and width to use vw/vh
 3. horizontally center an image in a parent
 4. use hover to activate a transform
-
+---
 #### CSS Transitions & Animations
 - transitions
 - keyframes
@@ -445,13 +451,13 @@
 - [CSS Transitions/Animations](https://learn.shayhowe.com/advanced-html-css/transitions-animations/)
 - [Polyfills](https://learn.shayhowe.com/advanced-html-css/feature-support-polyfills/)
 - [Accessibility](https://learn.shayhowe.com/advanced-html-css/semantics-accessibility/)
-
+---
 ## Exercise
 1. add the HTML5 Shiv to your project
 2. add some Aria roles to some of your elements
 3. transition a button's background-color when you hover
 4. create an animation with at least 3 steps
-
+---
 #### *Bonus* CSS Flexbox
 - history
 - parent/child properties
@@ -460,10 +466,10 @@
 - history
 - parent/child properties
 
-## *Bonus* Resources
+## Resources
 - [Flexbox](https://css-tricks.com/using-flexbox/)
 - [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
-
+---
 # Week 3
 
 #### JS Intro
@@ -485,7 +491,7 @@
 ## References
 - [reference JS](https://www.w3schools.com/TAGS/att_script_src.asp)
 - [console log](https://www.w3schools.com/jsref/met_console_log.asp)
-
+---
 ## Exercise
 1. in the browser add 2 strings together and return the answer
 2. create an html file 
@@ -501,7 +507,7 @@
     - load the browser to check the answer
 4. **bonus** in your external javascript file
     - add `2 + true` and see what you get
-
+---
 #### JS Operators
 - arithmetic
 - order of operations
@@ -516,7 +522,7 @@
 ## Resources
 - [operators](https://www.w3schools.com/js/js_operators.asp)
 - [conditional](https://www.w3schools.com/js/js_if_else.asp)
-
+---
 ## Exercise
 * *note* from now on we are going to assume you are working on an external javascript file
 1. create a counter variable with the value of 2
@@ -531,7 +537,7 @@
 4. create a conditional statement that tests the state of your variable in 4 different ways
     - in each of them link 2 comparisons together using logical operators
 5. create 3 `if` statements back to back. Comment the difference between multiple `if` statements and 1 conditional statement.
-
+---
 #### JS Loops
 - why loops
 - while/do while/for loop syntax
@@ -540,7 +546,7 @@
 ## Resources
 - [for loops](https://www.w3schools.com/js/js_loop_for.asp)
 - [while loops](https://www.w3schools.com/js/js_loop_while.asp)
-
+---
 ## Exercise
 1. create a counter variable
 2. add 1 and log it 50 times using a for loop
@@ -549,7 +555,7 @@
     - log the string `fizz` if the number is divisible by 3
     - log the string `buzz` if the number is divisible by 5
     - log the string `fizzbuzz` if the number is divisibly by both
-
+---
 
 #### JS Functions
 - why functions
@@ -562,7 +568,7 @@
 
 ## Resources
 - [functions](https://www.w3schools.com/js/js_functions.asp)
-
+---
 ## Exercise
 1. create a function that takes two arguments and adds them together
 2. create a function that takes two arguments and multiplies them together
@@ -572,7 +578,7 @@
     - add the argument to the global variable
     - log the return of that function
 5. create an IIFE that logs your success of creating an IIFE
-
+---
 
 #### JS User Input
 - `prompt`
@@ -590,10 +596,10 @@
 ## Resources
 - [math](https://www.w3schools.com/js/js_math.asp)
 - [user input](https://stackoverflow.com/questions/22978243/get-userinput-in-javascript)
-
+---
 ## Exercise
 1. create a function that takes user input and compares it against a random number. If there is a match then log the success.
-
+---
 #### JS Characters
 - escape
 - character encoding
@@ -621,13 +627,13 @@
 - [characters](https://javascript.info/string)
 - [string methods](https://www.w3schools.com/js/js_string_methods.asp)
 - [arrays](https://www.w3schools.com/js/js_arrays.asp)
-
+---
 
 ## Exercise
 1. make an array of 10 grocery store items loop through that array and log each item.
 2. loop through a string at least 10 characters long and log each character
 3. make that string upper case
-
+---
 
 #### JS Arrays II
 - `splice`
@@ -643,17 +649,17 @@
 
 ## Resources
 - [Array Methods](https://www.w3schools.com/js/js_array_methods.asp)
-
+---
 ## Exercise
 - Create an inventory array and associate a number with each item. Then get user input that purchases items (subtracts one from the item).
-
+---
 #### JS Data Types
 - type checking
 - type casting
 
 ## Resources
 - [type conversion](https://www.w3schools.com/js/js_type_conversion.asp)
-
+---
 ## Exercise
 - Grocery Store app
     - functions:
@@ -663,7 +669,7 @@
     - data:
         - inventory
         - inventory count
-
+---
 # Week 4
 
 #### JS Polyfills
@@ -708,12 +714,12 @@
 - [object properties](https://www.w3schools.com/js/js_object_properties.asp)
 - [object methods](https://www.w3schools.com/js/js_object_methods.asp)
 - [this keyword](https://www.w3schools.com/js/js_this.asp)
-
+---
 ## Exercise
 1. Test each function from last week's app
 2. update variables and functions to better names
 3. see if you can turn any functions into methods of objects
-
+---
 #### JS DOM Basics
 - intro to concept of api
 - selecting elements
@@ -728,7 +734,7 @@
 ## Exercise
 1. change styles of 3 separate elements using Javascript
 2. change the class name and text of a a child or sibling of each of the above elements
-
+---
 #### JS DOM Events
 - `addEventListener`
 - event delegation
@@ -737,7 +743,7 @@
 1. add an event listener to an element so that when you click it, another element's style changes.
 2. create a list with at least 3 elements
 3. apply event delegation to that list of elements
-
+---
 #### JS User Input
 - input `onChange`
 - form handling
@@ -751,7 +757,7 @@
     - list of terms
     - compare
     - validate input (no special characters)
-
+---
 #### JS Timing
 - `setTimeout`
 - `setInterval`
@@ -761,7 +767,7 @@
 - create a countdown timer
     - countdown from a number to 0
     - it needs to be visible counts
-
+---
 #### JS AJAX
 - status codes
 - GET
@@ -777,7 +783,7 @@
 ## Exercise
 - hit the Faker API
     - build a profile card for a random person
-
+---
 #### Week 5
 
 #### PHP Intro

@@ -21,7 +21,7 @@ export default class Week {
     return this._weekNames;
   }
   get content() {
-    this.buildContent();
+    this.buildContent(this._weekPattern, this._activityPattern, /---/g);
     return this._weekContent;
   }
 
@@ -126,14 +126,33 @@ export default class Week {
 
 
 
-  checkHeading() {}
+  checkHeading(line, headingPattern) {
+    if(headingPattern.test(line)) {
+      return line;
+    }
+    return false;
+  }
 
-  checkActivityHeading() {}
+  checkActivityHeading(line, activityPattern) {
+    if(activityPattern.test(line)) {
+      return line;
+    }
+    return false;
+  }
 
-  isActivityStop() {}
-  getContent () {}
+  checkActivityStop(line, activityStopPattern) {
+    if(activityStopPattern.test(line)) {
+      return line;
+    }
+    return false;
+  }
+  createPropName(line) {
+    return line.replace(/^#+/g, "")
+          .split(" ")
+          .join("");
+  }
 
-  buildContent () {
+  buildContent (headingPattern, activityPattern, activityStopPattern) {
   
     let activeHeading = false,
       activeActivity = false;
@@ -142,27 +161,39 @@ export default class Week {
     let fileArray = this._data.split("\n");
   
     let content = fileArray.reduce((accumulator, line, index) => {
-      let activityHeading = this.getActivityHeading(line),
-        activity = this.getContent(line);
 
         // Check if is Heading declaration
           // If so set active heading
-        activeHeading = this.checkHeading(line) ? line : activeHeading;
+        if(this.checkHeading(line, headingPattern)) {
+          activeHeading = this.createPropName(line);
+          accumulator[activeHeading] = {};
+          accumulator[activeHeading]["content"] = "";
+        }
 
         // Check is an Activity Heading
           // If so set active activity
-        activeActivity = this.checkActivityHeading(line) ? line : activeActivity;
-          
+        if(this.checkActivityHeading(line, activityPattern)) {
+          activeActivity = this.createPropName(line);
+          accumulator[activeHeading][activeActivity] = "";
+        }
+
         // Check is Activity stop
           // If so unset active activity
-        activeActivity = this.checkActivityStop(line) ? false : activeActivity;
+        if(this.checkActivityStop(line, activityStopPattern)) {
+          activeActivity = false;
+        }
  
-
-        this.
-
         // Check  is an active activity and active heading
-          // If so set activity content
-          // else set heading content
+          // If so set default content
+        if(activeHeading && !activeActivity) {
+          accumulator[activeHeading]["content"] += (line + "\n");
+        } 
+        
+        // Check  is an active activity and active heading
+          // If so set Activity content
+        if (activeHeading && activeActivity) {
+          accumulator[activeHeading][activeActivity] += (line + "\n");
+        }
 
       return accumulator;
     }, {}); 
