@@ -7,6 +7,8 @@
 ## Exercise
 1. First Exercise
 
+
+This is content after an exercise that should push to week 1.
 ---
 
 ## Resources
@@ -14,9 +16,12 @@
 
 ---
 
+Content after a resource that should push to week 1.
+
 # Week 2
 ## Exercise
 - This is an Exercise
+
 
 
 ---

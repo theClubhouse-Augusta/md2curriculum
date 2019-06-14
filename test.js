@@ -1,3 +1,3 @@
 const md2fs = require("./index");
 
-md2fs('test.md');
+md2fs('lesson-plan.md');

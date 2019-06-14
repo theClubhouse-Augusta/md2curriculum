@@ -1,3 +1,7 @@
+
+
+
+
 export default class Week {
   constructor(data) {
     this._data = data;
@@ -43,6 +47,14 @@ export default class Week {
     return (this._weekNames = weekNames);
   }
 
+
+
+/* Content Builder stuff */
+
+
+
+
+/*
   // Recursive func that takes a pattern (heading level) and tests it against headings/subheadings
   buildContent(heading) {
     // Base Object where all content resides
@@ -89,7 +101,7 @@ export default class Week {
         contentObj[currentTopLevel][currentActivity] = fileArray[i] + "\n";
       }
 
-      // Test/Set Exercise Ending
+      // Test if there is an active Exercise and the line has an ending
       // Reset Current Activity
       else if (
         fileArray[i] === "---" &&
@@ -109,5 +121,53 @@ export default class Week {
       i++;
     }
     return (this._weekContent = contentObj);
+  } */
+
+
+
+
+  checkHeading() {}
+
+  checkActivityHeading() {}
+
+  isActivityStop() {}
+  getContent () {}
+
+  buildContent () {
+  
+    let activeHeading = false,
+      activeActivity = false;
+  
+    // Break file string into array
+    let fileArray = this._data.split("\n");
+  
+    let content = fileArray.reduce((accumulator, line, index) => {
+      let activityHeading = this.getActivityHeading(line),
+        activity = this.getContent(line);
+
+        // Check if is Heading declaration
+          // If so set active heading
+        activeHeading = this.checkHeading(line) ? line : activeHeading;
+
+        // Check is an Activity Heading
+          // If so set active activity
+        activeActivity = this.checkActivityHeading(line) ? line : activeActivity;
+          
+        // Check is Activity stop
+          // If so unset active activity
+        activeActivity = this.checkActivityStop(line) ? false : activeActivity;
+ 
+
+        this.
+
+        // Check  is an active activity and active heading
+          // If so set activity content
+          // else set heading content
+
+      return accumulator;
+    }, {}); 
+
+    return this._weekContent = content;
   }
 }
+
