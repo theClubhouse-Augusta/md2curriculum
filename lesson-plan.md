@@ -77,7 +77,7 @@
 6. CLI: Paste what you copied and press enter
 7. CLI: `git push -u origin master`
 8. Refresh Github to see if it worked.
-
+---
 #### Markdown Basics
 - importance for jobs
 - headings `# - ######`

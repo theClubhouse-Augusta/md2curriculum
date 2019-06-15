@@ -51,81 +51,6 @@ export default class Week {
 
 /* Content Builder stuff */
 
-
-
-
-/*
-  // Recursive func that takes a pattern (heading level) and tests it against headings/subheadings
-  buildContent(heading) {
-    // Base Object where all content resides
-    let contentObj = {},
-      currentTopLevel = {},
-      currentActivity = {};
-    let i = 0;
-
-    // TODO:
-    // Make function recursively called to break object into more controllable chunks
-    let headingLevel = !heading ? "#" : heading;
-
-    // Break file string into array
-    let fileArray = this._data.split("\n");
-
-    // Regex Tests for sections
-    let headingRegex = RegExp(`^${headingLevel} .*`, "g");
-    let exerciseRegex = RegExp("^## Exercise.*", "g");
-    let resourceRegex = RegExp("^## Resource.*", "g");
-
-    while (i < fileArray.length) {
-      // Top Level heading
-      if (headingRegex.test(fileArray[i])) {
-        currentTopLevel = fileArray[i]
-          .replace("#", "")
-          .split(" ")
-          .join("");
-
-        // Initialize heading
-        contentObj[currentTopLevel] = {};
-        contentObj[currentTopLevel]["content"] = fileArray[i];
-      }
-
-      // Test and Set Activity Heading
-      // Todo: What if Exercise initialized w/o heading
-      else if (
-        exerciseRegex.test(fileArray[i]) ||
-        resourceRegex.test(fileArray[i])
-      ) {
-        currentActivity = fileArray[i]
-          .replace("##", "")
-          .split(" ")
-          .join("");
-        contentObj[currentTopLevel][currentActivity] = fileArray[i] + "\n";
-      }
-
-      // Test if there is an active Exercise and the line has an ending
-      // Reset Current Activity
-      else if (
-        fileArray[i] === "---" &&
-        Object.keys(currentActivity).length > 0
-      ) {
-        currentActivity = {};
-      }
-
-      // Test/Set Current Activity is active
-      // Add Activity Content
-      else if (Object.keys(currentActivity).length > 0) {
-        contentObj[currentTopLevel][currentActivity] += fileArray[i] + "\n";
-      } else {
-        contentObj[currentTopLevel]["content"] += fileArray[i] + "\n";
-      }
-
-      i++;
-    }
-    return (this._weekContent = contentObj);
-  } */
-
-
-
-
   checkHeading(line, headingPattern) {
     if(headingPattern.test(line)) {
       return line;
@@ -140,28 +65,39 @@ export default class Week {
     return false;
   }
 
+  
   checkActivityStop(line, activityStopPattern) {
     if(activityStopPattern.test(line)) {
       return line;
     }
     return false;
   }
+
   createPropName(line) {
     return line.replace(/^#+/g, "")
-          .split(" ")
-          .join("");
+    .split(" ")
+    .join("");
+  }
+
+  addActivityContent(line) {
+    return  line + "\n";
+  }
+
+  addDefaultContent(line, activityStop) {
+    return !activityStop ? (line + "\n") : "";
   }
 
   buildContent (headingPattern, activityPattern, activityStopPattern) {
   
     let activeHeading = false,
-      activeActivity = false;
+      activeActivity = false,
+      activityStop = false;
   
     // Break file string into array
     let fileArray = this._data.split("\n");
   
-    let content = fileArray.reduce((accumulator, line, index) => {
-
+    return this._weekContent = fileArray.reduce((accumulator, line, index) => {
+      
         // Check if is Heading declaration
           // If so set active heading
         if(this.checkHeading(line, headingPattern)) {
@@ -170,35 +106,42 @@ export default class Week {
           accumulator[activeHeading]["content"] = "";
         }
 
-        // Check is an Activity Heading
-          // If so set active activity
+        // Check if activity heading, and set active Activity
         if(this.checkActivityHeading(line, activityPattern)) {
+
           activeActivity = this.createPropName(line);
-          accumulator[activeHeading][activeActivity] = "";
-        }
+          
+          accumulator[activeHeading][activeActivity] = 
+          accumulator[activeHeading].hasOwnProperty(activeActivity) ? 
+          accumulator[activeHeading][activeActivity] :  "";          
+        } 
 
         // Check is Activity stop
           // If so unset active activity
         if(this.checkActivityStop(line, activityStopPattern)) {
           activeActivity = false;
+          activityStop = true;
         }
  
         // Check  is an active activity and active heading
           // If so set default content
         if(activeHeading && !activeActivity) {
-          accumulator[activeHeading]["content"] += (line + "\n");
-        } 
+          accumulator[activeHeading]["content"] += this.addDefaultContent(line, activityStop);
+        }
         
         // Check  is an active activity and active heading
-          // If so set Activity content
+        // If so set Activity content
         if (activeHeading && activeActivity) {
-          accumulator[activeHeading][activeActivity] += (line + "\n");
+          accumulator[activeHeading][activeActivity] += this.addActivityContent(line);
+        }
+        
+        // reset Activity Stop
+        if(!activeActivity && activityStop) {
+          activityStop = false;
         }
 
       return accumulator;
     }, {}); 
-
-    return this._weekContent = content;
   }
 }
 
