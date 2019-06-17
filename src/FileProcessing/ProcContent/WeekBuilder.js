@@ -7,8 +7,9 @@ export default class Week {
     this._data = data;
     this._weekNames = [];
     this._weekCount = 0;
-    this._weekPattern = /(# Week.*)/g;
-    this._activityPattern = /(## Resource.*)|(## Exercise.*)/g;
+    this._headingPattern = /(# Week.*)/g;
+    this._activityPattern = /(## Resource.*)|(## Exercise.*)|(## Quiz.*)/g;
+    this._activityStopPattern = /---/g;
     this._contentObj = {};
   }
 
@@ -21,7 +22,7 @@ export default class Week {
     return this._weekNames;
   }
   get content() {
-    this.buildContent(this._weekPattern, this._activityPattern, /---/g);
+    this.buildContent(this._headingPattern, this._activityPattern, this._activityStopPattern);
     return this._weekContent;
   }
 
