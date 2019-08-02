@@ -6,8 +6,9 @@ const util = require("util");
 
 
 module.exports = App;
-
-function App(file) {
+function App(file, options) {
+  
+  options ? options : {};
   
   try {
     var input = new Input(file);
@@ -32,12 +33,9 @@ function App(file) {
   );
 }
 
+/* 
+Jekyll Style front matter
+folder: Week$
+default: readme.md
 
-    
-// let process2 = new Process(input.filePath);
-// Promise.all([
-//     process1.processFile(),
-//     process2.processFile()
-// ]).then(d => {
-// //    d.forEach(p => console.log(p))
-// })
+*/
